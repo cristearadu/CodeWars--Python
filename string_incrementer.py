@@ -3,16 +3,14 @@ def increment_string(strng):
     import re
     patt = r"([0-9]+)"
     out = re.search(patt,strng)
-    out = out.group()
-    print(type(out))
-    
+        
     if out:
+        out = out.group()
         index = strng.find(out)
-        print(index) 
-        pass
+        return f"{strng[:index]}{out[:-1]}{int(out[-1]) + 1 }"     
     else:
         return strng + "1"
-    #return strng
+
 
 print(increment_string("foobar001"))
 #print(increment_string("bar"))
