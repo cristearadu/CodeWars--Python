@@ -1,20 +1,15 @@
 #https://www.codewars.com/kata/51c8e37cee245da6b40000bd/train/python
 def solution(string,markers):
-    new_word = ''
-    for i in range(len(string.split('\n')):
-        print (i)
-    for elem,word in range(markers), string.split('\n'):
-        #for word in string.split('\n'):
-        if elem in word:
-            word = word[:word.index(elem)]
-            word = word.strip()
-            word += '\n'
-            new_word += word
-            print("IF::"+word)
-        else:
-            print("ELSE::"+word)
-            new_word += word + '\n'
-    return new_word
+    words = string.split('\n')
+    
+    for i,line in enumerate(words):
+        for marker in markers:
+            index = line.find(marker)
+            if index != -1:
+                line = line[:index]
+        words[i] = line.rstrip(' ')
+
+    return '\n'.join(words)
 print(solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]))
 #print("apples, pears\ngrapes\nbananas")
 #print("#########################")
