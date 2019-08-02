@@ -25,44 +25,28 @@ def land_perimeter(arr):
                     ignore_list.append((i,j))
     
 
+    print(ignore_list)
 
+ 
     def find_perimeter(ignore_list):
-        perim = 0
-        ignore_list_final = []
-        perim_list = []
-        for elem in ignore_list:
-            done = False
-            perim_list.append(elem)
-            while done == False and elem not in ignore_list_final:
-
-                if(elem[0]-1,elem[1]) in ignore_list and (elem[0]-1,elem[1]) not in ignore_list_final:
-                    print('up')
-                    perim_list.append((elem[0]-1,elem[1]))
-                    ignore_list_final.append((elem[0]-1,elem[1])) 
-                elif (elem[0]+1,elem[1]) in ignore_list and (elem[0]+1,elem[1]) not in ignore_list_final:
-                    print('down')
-                    perim_list.append((elem[0]+1,elem[1]))
-                    ignore_list_final.append((elem[0]+1,elem[1]))  
-
-                elif(elem[0],elem[1]+1) in ignore_list and (elem[0],elem[1]+1) not in ignore_list_final:
-                    print('right')
-                    perim_list.append((elem[0],elem[1]+1))
-                    ignore_list_final.append((elem[0],elem[1]+1)) 
-
-                elif(elem[0],elem[1]-1) in ignore_list and (elem[0],elem[1]-1) not in ignore_list_final:
-                    print('left')
-                    erim_list.append((elem[0],elem[1]-1))
-                    ignore_list_final.append((elem[0],elem[1]-1)) 
-                else:
-                    done = True
-
+        length = 0
+        width = 0
+        i = 0
+        j = 0
+        done = False
+        
+        while elem in ignore_list:
+            pass
+        #perimetru simplu de patrat sau dreptunghi
     find_perimeter(ignore_list)
         
-    return f"Total land perimeter: "
+        
+            
+    return f"Total land perimeter: {total_perimeter}"
 print(land_perimeter(
-['XXOOO',
- 'XXOXO',
- 'OXXXO',
+['XXOXX',
+ 'XXOOX',
+ 'OXXXX',
  'OOOOO',
  'OOOOO'] ))
 
