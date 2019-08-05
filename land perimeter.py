@@ -7,42 +7,36 @@
 #imi pastrez o alta lista unde stockez pozitiile deja mentionate ca sa le omit
 def land_perimeter(arr):
     
+    #X = 4 m in perimetrus
+    #Fiecare X adiacent scade 2 in perimetru
     total_perimeter = 0
-    ignore_list = []
-
-    def find_X(arr,i,j):
-        to_go_list = []
-        if(i,j) not in ignore_list:
-            ignore_list.append((i,j))
-
-    
-
-    for i in range(len(arr)):
-        for j in range(len(arr[i])):
-            if i < len(arr)-1:
-                if arr[i][j] == 'X':
-                    #find_X(arr,i,j)
-                    ignore_list.append((i,j))
-    
-
-    print(ignore_list)
-
- 
-    def find_perimeter(ignore_list):
-        length = 0
-        width = 0
-        i = 0
-        j = 0
-        done = False
-        
-        while elem in ignore_list:
-            pass
-        #perimetru simplu de patrat sau dreptunghi
-    find_perimeter(ignore_list)
-        
-        
-            
+    for x in range(len(arr)):
+        for y in range(len(arr[x])):
+            if arr[x][y] == "X":
+                total_perimeter += 4
+                if (x != len(arr) - 1) and (arr[x + 1][y] == 'X'):
+                    total_perimeter -= 1
+                if (x != 0) and (arr[x - 1][y] == 'X'):
+                    total_perimeter -= 1
+                if (y != len(arr[0]) - 1) and (arr[x][y + 1] == 'X'):
+                    total_perimeter -= 1
+                if (y != 0) and (arr[x][y - 1] == 'X'):
+                    total_perimeter -= 1
     return f"Total land perimeter: {total_perimeter}"
+
+
+def land_perimeter(arr):
+    I, J = len(arr), len(arr[0])
+
+    P = 0
+    for i in range(I):
+        for j in range(J):
+            if arr[i][j] == 'X':
+                if i == 0 or arr[i - 1][j] == 'O': P += 1
+                if i == I - 1 or arr[i + 1][j] == 'O': P += 1
+                if j == 0 or arr[i][j - 1] == 'O': P += 1
+                if j == J - 1 or arr[i][j + 1] == 'O': P += 1
+
 print(land_perimeter(
 ['XXOXX',
  'XXOOX',
